@@ -48,13 +48,7 @@ export const CredentialRegisterForm = () => {
 
   const onSubmitRegister = handleSubmit(async (data) => {
     try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
-
-      const user = response.user;
+      await createUserWithEmailAndPassword(auth, data.email, data.password);
 
       navigate("/register/information");
     } catch (error) {

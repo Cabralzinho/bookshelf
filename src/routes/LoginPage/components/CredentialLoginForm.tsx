@@ -42,13 +42,11 @@ export const CredentialLoginForm = () => {
 
   const onSubmitLogIn = handleSubmit(async (data) => {
     try {
-      const response = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         data.email,
         data.password
       );
-
-      const user = response.user;
 
       navigate("/");
     } 

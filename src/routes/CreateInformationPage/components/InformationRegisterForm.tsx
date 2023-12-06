@@ -39,6 +39,12 @@ export const InformationRegisterForm = () => {
     resolver: zodResolver(schema),
   });
 
+  useEffect(() => {
+    if (img) {
+      storageUpload();
+    }
+  }, [img]);
+
   const storageUpload = () => {
     const storage = getStorage();
 
@@ -48,6 +54,10 @@ export const InformationRegisterForm = () => {
 
     uploadTask.on(
       "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
       (error) => {
         console.log(error);
       },
@@ -68,11 +78,7 @@ export const InformationRegisterForm = () => {
     );
   };
 
-  useEffect(() => {
-    if (img) {
-      storageUpload();
-    }
-  }, [img]);
+ 
 
   const onSubmitRegisterInformation = handleSubmit(async (data) => {
     const user = auth.currentUser;

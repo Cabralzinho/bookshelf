@@ -71,7 +71,7 @@ export const useBook = () => {
 
     const clearedDuplicatedBooks = clearDuplicatedBooks(randomPopularBook);
 
-    setSearchRandomPopularBook(clearedDuplicatedBooks);
+    setSearchRandomPopularBook(clearedDuplicatedBooks as BookApi);
     return;
   };
 
@@ -86,7 +86,7 @@ export const useBook = () => {
 
     const clearedDuplicatedBooks = clearDuplicatedBooks(randomNewestBook);
 
-    setSearchRandomNewestBook(clearedDuplicatedBooks);
+    setSearchRandomNewestBook(clearedDuplicatedBooks as BookApi);
     return;
   };
 
