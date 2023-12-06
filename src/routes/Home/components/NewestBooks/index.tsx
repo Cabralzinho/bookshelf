@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Icons } from "@/components/Icons";
+import { useEffect } from "react";
 import { useBook } from "@/hooks/useBook";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +12,6 @@ export const NewestBooks = () => {
     searchRandomNewestBookInApi,
     searchBookInApi,
   } = useBook();
-  const [bookMark, setBookMark] = useState(false);
   const navigate = useNavigate();
 
   const handleNewestBookClick = (book: BookData) => {
