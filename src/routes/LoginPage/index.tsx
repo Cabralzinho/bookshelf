@@ -5,9 +5,9 @@ import { RecoveryPasswordForm } from "./components/RecoveryPasswordForm";
 export const LoginPage = () => {
   return (
     <main>
-      <div className="relative h-screen max-h-[34.2rem]">
+      <div className="relative h-screen overflow-hidden">
         <img
-          className="h-screen w-full object-cover z-[-1] absolute"
+          className="h-full max-h-[80rem] w-screen object-cover z-[-1] absolute"
           src="./images/lendo2.jpeg"
           alt=""
         />

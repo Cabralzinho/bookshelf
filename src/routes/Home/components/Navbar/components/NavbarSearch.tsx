@@ -49,7 +49,7 @@ export const NavbarSearch = () => {
         <>
           <div className="flex flex-col gap-1 items-end">
             <input
-              className="w-full max-w-[10rem] py-1 pl-3 rounded-lg bg-gray-100 focus:outline-none"
+              className="w-full max-w-[10rem] py-1 pl-3 rounded-lg bg-gray-100 dark:text-black focus:outline-none"
               type="text"
               value={inputValue}
               onChange={handleInputChange}
@@ -57,9 +57,9 @@ export const NavbarSearch = () => {
               autoComplete="off"
             />
             <div className="flex flex-col items-center w-full max-w-[10rem] h-0 z-[999]">
-              <div className="flex bg-slate-100 rounded-lg">
+              <div className="flex bg-slate-100 dark:bg-gray-800 rounded-lg">
                 {isListVisible && searchBook && (
-                  <ul className="flex flex-col divide-y-2 divide-zinc-200">
+                  <ul className="flex flex-col divide-y-2 divide-zinc-200 dark:divide-gray-700">
                     {searchBook.items.map((book) => {
                       return (
                         <li

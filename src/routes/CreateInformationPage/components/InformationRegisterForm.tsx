@@ -95,7 +95,7 @@ export const InformationRegisterForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-3 w-full max-w-[18rem] items-center"
+      className="flex flex-col gap-3 mobile:gap-5 w-full h-full max-w-[18rem] items-center"
       onSubmit={onSubmitRegisterInformation}
     >
       <Input
@@ -114,9 +114,9 @@ export const InformationRegisterForm = () => {
           setImg(e.target.files[0]);
         }}
       />
-      <div className="w-full max-w-[10rem] h-[10rem] rounded-full overflow-hidden">
+      <div className="w-full h-full max-w-[8rem] max-h-[8rem] mobile:h-[6rem] mobile:w-[6rem] rounded-full overflow-hidden">
         <img
-          className="w-full max-w-[10rem] h-full max-h-[10rem] rounded-full object-cover"
+          className="w-full h-full object-cover"
           src={imgUrl || "../images/user.jpg"}
           alt=""
         />

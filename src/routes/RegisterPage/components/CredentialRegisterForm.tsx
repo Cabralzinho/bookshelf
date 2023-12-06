@@ -58,7 +58,7 @@ export const CredentialRegisterForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-3 w-full max-w-[18rem]"
+      className="flex flex-col gap-3 w-full h-full max-w-[18rem]"
       onSubmit={onSubmitRegister}
     >
       <Input
