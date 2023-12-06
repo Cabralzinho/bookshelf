@@ -27,7 +27,7 @@ export const NewestBooks = () => {
   }, []);
 
   return (
-    <section className="flex justify-center">
+    <section className="flex justify-center pb-[4.5rem]">
       <div className="flex flex-col w-full max-w-[24rem] gap-4">
         <h4>Newest</h4>
         {searchRandomNewestBook && (
@@ -54,21 +54,6 @@ export const NewestBooks = () => {
                     <p className="text-xs text-gray-600">
                       {book.volumeInfo.authors?.[0]}
                     </p>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="flex w-full">
-                      {bookMark ? (
-                        <Icons.BookMarkAble
-                          className="cursor-pointer text-lg"
-                          onClick={() => setBookMark(false)}
-                        />
-                      ) : (
-                        <Icons.BookmarkDisabled
-                          className="cursor-pointer text-lg"
-                          onClick={() => setBookMark(true)}
-                        />
-                      )}
-                    </div>
                   </div>
                 </div>
               </li>
