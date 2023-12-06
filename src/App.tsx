@@ -4,7 +4,7 @@ import "@/App.css";
 
 function App() {
   return (
-    <div className="flex w-full h-screen justify-center overflow-hidden">
+    <div className="flex w-full h-screen justify-center overflow-hidden overflow-y-auto">
         <AppBar />
       <div className="flex flex-col gap-8 w-full max-w-[24rem] h-screen pb-[5rem] mobile:px-[1rem]">
         <Outlet />
