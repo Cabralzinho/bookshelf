@@ -27,7 +27,7 @@ export const Buttons = () => {
   return (
     <div className="">
       {specificBook && (
-        <div className="flex w-[18rem] bg-stone-100 border border-gray-800/50 drop-shadow-lg text-black rounded-lg relative divide-x divide-black">
+        <div className="flex w-full max-w-[20rem] bg-stone-100 border border-gray-800/50 drop-shadow-lg text-black rounded-lg relative divide-x divide-black">
           <a
             className="w-full"
             target="_blank"

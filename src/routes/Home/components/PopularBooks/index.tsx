@@ -29,7 +29,7 @@ export const PopularBooks = () => {
       <section className="flex flex-col w-full max-w-[24rem] gap-4">
         <h4>Popular Books</h4>
         {searchRandomPopularBook && (
-          <ul className="flex gap-6 w-full max-w-[24rem] overflow-scroll overflow-y-hidden items-center">
+          <ul className="flex gap-6 w-full max-w-[24rem] overflow-scroll overflow-y-hidden items-center pb-1">
             {searchRandomPopularBook.items.map((book: any) => (
               <li
                 key={book.etag}
@@ -48,7 +48,7 @@ export const PopularBooks = () => {
                   <h6 className="text-xs overflow-hidden whitespace-nowrap text-ellipsis">
                     {book.volumeInfo.title}
                   </h6>
-                  <p className="text-gray-600">
+                  <p className="text-xs text-gray-600 dark:text-gray-400">
                     {book.volumeInfo.authors?.[0]}
                   </p>
                 </div>

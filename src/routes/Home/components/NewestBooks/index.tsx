@@ -45,11 +45,11 @@ export const NewestBooks = () => {
                     }
                     alt="Imagem não encontrada"
                   />
-                  <div>
-                    <h6 className="text-sm w-48 overflow-hidden text-ellipsis whitespace-nowrap">
+                  <div className="w-full max-w-[22rem] flex flex-col flex-wrap gap-2">
+                    <h6 className="text-sm">
                       {book.volumeInfo.title}
                     </h6>
-                    <p className="text-xs text-gray-600">
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
                       {book.volumeInfo.authors?.[0]}
                     </p>
                   </div>

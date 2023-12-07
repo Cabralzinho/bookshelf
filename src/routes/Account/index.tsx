@@ -6,7 +6,7 @@ import { AccountProfilePicture } from "./components/AccountProfilePicture";
 
 export const Account = () => {
   return (
-    <main className="flex flex-col pt-10 gap-4">
+    <main className="flex flex-col pt-10 py-20 gap-4">
       <header className="flex justify-center">
         <nav className="flex w-full max-w-[24rem] text-lg">
           <Link

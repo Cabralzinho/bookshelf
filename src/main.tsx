@@ -13,6 +13,7 @@ import { CreateInformationPage } from "./routes/CreateInformationPage/index.tsx"
 import { PublicLayout } from "./components/PublicLayout.tsx";
 import { LoginPage } from "./routes/LoginPage/index.tsx";
 import { Protected } from "./components/Protected.tsx";
+import { SearchBook } from "./routes/SearchBook/index.tsx";
 
 const appLayout = (
   <BookshelfProvider>
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/search-book",
+        element: <SearchBook />,
       },
       {
         path: "/books/v1/volumes/:id",

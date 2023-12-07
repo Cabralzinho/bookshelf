@@ -7,6 +7,7 @@ import { ChevronRight } from "./ChevronRight";
 import { Close } from "./Close";
 import { Ellipsis } from "./Ellipsis";
 import { Gear } from "./Gear";
+import { Google } from "./Google";
 import { House } from "./House";
 import { Logout } from "./Logout";
 import { Page } from "./Page";
@@ -30,4 +31,5 @@ export const Icons = {
   User: User,
   ChevronRight: ChevronRight,
   Logout: Logout,
+  Google: Google,
 }

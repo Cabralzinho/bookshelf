@@ -95,7 +95,7 @@ export const InformationRegisterForm = () => {
 
   return (
     <form
-      className="flex flex-col gap-3 mobile:gap-5 w-full h-full max-w-[18rem] items-center"
+      className="flex flex-col gap-3 mobile:gap-5 w-full items-center"
       onSubmit={onSubmitRegisterInformation}
     >
       <Input

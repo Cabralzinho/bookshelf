@@ -52,7 +52,7 @@ export const useBook = () => {
     updateRequestLastMinute();
 
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${bookName}&maxResults=3&key=${apiKey}`
+      `https://www.googleapis.com/books/v1/volumes?q=${bookName}&maxResults=10&key=${apiKey}`
     );
 
     const book = await response.json();

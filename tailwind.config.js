@@ -8,7 +8,7 @@ export default {
     extend: {
       screens: {
         mobile: {
-          max: "450px"
+          max: "450px",
         },
         medium: {
           max: "1200px"

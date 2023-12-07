@@ -1,21 +1,23 @@
-import { InformationRegisterForm } from "./components/InformationRegisterForm"
+import { InformationRegisterForm } from "./components/InformationRegisterForm";
 
 export const CreateInformationPage = () => {
   return (
     <main>
-      <div className="relative h-screen max-h-[34.2rem]">
+      <div className="relative h-full overflow-hidden">
         <img
-          className="h-screen w-full object-cover z-[-1] absolute"
+          className="h-full w-full object-cover z-[-1] absolute"
           src="../images/lendo2.jpeg"
           alt=""
         />
         <div className="flex flex-col items-center justify-center h-screen w-full gap-1 p-4">
-          <h1 className="text-2xl text-stone-50 bg-slate-950/5 rounded-full w-full items-center px-5">Register Informations</h1>
-          <div className="relative flex flex-col items-center h-full gap-4 bg-gray-600/80 backdrop-blur-md rounded-xl w-full max-w-[20rem] py-4 px-2">
+          <h1 className="text-2xl text-stone-50 bg-slate-950/5 rounded-full w-full max-w-[20rem]">
+            Register Informations
+          </h1>
+          <div className="relative flex flex-col items-center h-full max-h-[23rem] gap-4 bg-gray-600/80 backdrop-blur-md rounded-xl w-full max-w-[20rem] py-4 px-2">
             <InformationRegisterForm />
           </div>
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
