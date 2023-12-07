@@ -1,6 +1,7 @@
 import { useBook } from "@/hooks/useBook";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "@/App.css";
 
 type BookData = {
   id: string;
@@ -26,10 +27,10 @@ export const PopularBooks = () => {
 
   return (
     <main className="flex justify-center">
-      <section className="flex flex-col w-full max-w-[24rem] gap-4">
+      <section className="flex flex-col w-full max-w-[24rem] no-scroll gap-4">
         <h4>Popular Books</h4>
         {searchRandomPopularBook && (
-          <ul className="flex gap-6 w-full max-w-[24rem] overflow-scroll overflow-y-hidden items-center pb-1">
+          <ul className="flex gap-6 w-full max-w-[24rem] overflow-hidden overflow-x-visible items-center pb-1">
             {searchRandomPopularBook.items.map((book: any) => (
               <li
                 key={book.etag}

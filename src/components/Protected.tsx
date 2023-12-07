@@ -8,7 +8,7 @@ export const Protected = ({ children }: { children: JSX.Element }) => {
     return <Navigate to="/login" replace />;
   } else {
     return (
-      <div className="flex w-full justify-center overflow-hidden">
+      <div className="flex w-full justify-center">
         <div className="flex flex-col gap-8 w-full max-w-[24rem] h-screen">
           {children}
         </div>

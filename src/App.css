@@ -23,8 +23,8 @@ body {
   font-family: "Poppins", sans-serif;
   @apply text-sky-950 dark:text-gray-100;
   @apply bg-gray-50 dark:bg-zinc-900;
-  @apply h-screen w-screen overflow-x-hidden;
-  @apply scroll-smooth
+  @apply h-screen w-screen overflow-x-hidden overflow-y-visible;
+  @apply scroll-smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -61,4 +61,8 @@ h6 {
 
 #appbar.active{
   @apply bg-sky-500  hover:bg-sky-300;
+}
+
+.no-scroll ::-webkit-scrollbar {
+  @apply mobile:w-0 mobile:h-0
 }
