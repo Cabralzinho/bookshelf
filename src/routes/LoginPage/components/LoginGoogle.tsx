@@ -20,7 +20,7 @@ export const LoginGoogle = () => {
   return (
     <div
       onClick={handleOnClickPopUp}
-      className="flex items-center justify-center gap-2 bg-red-600/80 hover:bg-red-600 transition-all cursor-pointer py-2 px-4 w-full max-w-[18rem] rounded-lg text-lg"
+      className="flex items-center justify-center gap-2 bg-red-600/80 hover:bg-red-600 transition-all cursor-pointer py-2 px-4 w-full max-w-[18rem] rounded-lg text-lg text-white"
     >
       <Icons.Google />
       <p className="text-center">Login with Google</p>

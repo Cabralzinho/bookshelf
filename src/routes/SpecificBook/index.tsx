@@ -1,4 +1,3 @@
-import { Icons } from "@/components/Icons";
 import { useBook } from "@/hooks/useBook";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";

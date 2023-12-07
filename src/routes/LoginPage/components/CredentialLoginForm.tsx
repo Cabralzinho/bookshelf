@@ -77,7 +77,7 @@ export const CredentialLoginForm = () => {
       />
       <button
         disabled={!!errors.email || !!errors.password}
-        className="rounded-lg w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400"
+        className="rounded-lg w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400 text-white"
       >
         Login
       </button>
