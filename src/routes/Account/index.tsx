@@ -14,7 +14,7 @@ export const Account = () => {
             className="flex gap-2 cursor-pointer items-center hover:scale-105 transition-all duration-75"
           >
             <Icons.Angle />
-            <p>Back</p>
+            <p>Voltar</p>
           </Link>
         </nav>
       </header>

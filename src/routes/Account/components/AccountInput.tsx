@@ -6,11 +6,11 @@ export const AccountInput = () => {
 
   const inputItem = [
     {
-      inputName: "Your name",
+      inputName: "Seu Nome",
       name: authUser?.displayName,
     },
     {
-      inputName: "Your email",
+      inputName: "Seu Email",
       name: authUser?.email,
     },
   ];
