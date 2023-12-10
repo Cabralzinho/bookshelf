@@ -70,8 +70,8 @@ export const CredentialLoginForm = () => {
       <Input
         error={!!errors.password}
         type="password"
-        label="Password"
-        placeholder="Password"
+        label="Senha"
+        placeholder="Senha"
         helperText={errors.password?.message}
         {...register("password")}
       />
@@ -79,7 +79,7 @@ export const CredentialLoginForm = () => {
         disabled={!!errors.email || !!errors.password}
         className="rounded-lg w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400 text-white"
       >
-        Login
+        Entrar
       </button>
     </form>
   );

@@ -1,23 +1,23 @@
 import { Input } from "@/components/Input";
+import { auth } from "@/firebase/firebase";
 import { StringUtils } from "@/utils/components/StringUtils";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  ActionCodeURL,
+  confirmPasswordReset,
+  verifyPasswordResetCode,
+} from "firebase/auth";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { auth } from "@/firebase/firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { z } from "zod";
 
 type FormProps = z.infer<typeof schema>;
 
 const schema = z
   .object({
-    email: z.string().email("Email inválido"),
     password: z
       .string()
-      .min(
-        6,
-        "A senha precisa ter pelo menos 6 caracteres com uma letra maiúscula, um caractere especial e um número"
-      )
+      .min(6)
       .refine((value) => StringUtils.hasNumber(value), {
         message: "A senha precisa ter pelo menos um número",
       })
@@ -34,9 +34,7 @@ const schema = z
     message: "As senhas precisam ser iguais",
   });
 
-export const CredentialRegisterForm = () => {
-  const navigate = useNavigate();
-
+export const CredentialNewPassword = () => {
   const {
     register,
     handleSubmit,
@@ -46,51 +44,47 @@ export const CredentialRegisterForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmitRegister = handleSubmit(async (data) => {
-    try {
-      await createUserWithEmailAndPassword(auth, data.email, data.password);
+  const navigate = useNavigate();
 
-      navigate("/register/information");
+  const onSubmitNewPassword = handleSubmit(async (data) => {
+    try {
+      const actionCode = ActionCodeURL.parseLink(window.location.href)?.code;
+
+      await verifyPasswordResetCode(auth, actionCode as string);
+
+      await confirmPasswordReset(auth, actionCode as string, data.password);
+
+      alert("Senha redefinida com sucesso");
+
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
   });
 
   return (
-    <form
-      className="flex flex-col gap-3 w-full h-full max-w-[18rem]"
-      onSubmit={onSubmitRegister}
-    >
+    <form className="flex flex-col gap-3" onSubmit={onSubmitNewPassword}>
       <Input
-        error={!!errors.email}
-        label="Email"
-        placeholder="Email"
-        helperText={errors.email?.message}
-        {...register("email")}
-      />
-      <Input
-        error={!!errors.password}
         type="password"
         label="Senha"
         placeholder="Senha"
         helperText={errors.password?.message}
+        error={!!errors.password}
         {...register("password")}
       />
       <Input
-        error={!!errors.confirmPassword}
         type="password"
-        label="Confirmar a senha"
-        placeholder="Confirmar a senha"
+        label="Confirme sua senha"
+        placeholder="Confirme sua senha"
         helperText={errors.confirmPassword?.message}
+        error={!!errors.confirmPassword}
         {...register("confirmPassword")}
       />
       <button
-        disabled={
-          !!errors.email || !!errors.password || !!errors.confirmPassword
-        }
-        className="rounded-lg w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400 text-white"
+        disabled={!!errors.password}
+        className="bg-blue-500/90 hover:bg-blue-500 text-white py-2 px-4 rounded-lg"
       >
-        Registrar
+        Redefinir senha
       </button>
     </form>
   );

@@ -14,6 +14,8 @@ import { PublicLayout } from "./components/PublicLayout.tsx";
 import { LoginPage } from "./routes/LoginPage/index.tsx";
 import { Protected } from "./components/Protected.tsx";
 import { SearchBook } from "./routes/SearchBook/index.tsx";
+import { RecoveryPasswordForm } from "./routes/RecoveryPasswords/SendEmail/index.tsx";
+import { RedefinePassword } from "./routes/RecoveryPasswords/RedefinePassword/index.tsx";
 
 const appLayout = (
   <BookshelfProvider>
@@ -73,6 +75,14 @@ const router = createBrowserRouter([
         path: "/register/information",
         element: <CreateInformationPage />,
       },
+      {
+        path: "/recovery",
+        element: <RecoveryPasswordForm />,
+      },
+      {
+        path: "/recovery/password",
+        element: <RedefinePassword />
+      }
     ],
   },
 ]);

@@ -13,7 +13,7 @@ export const CreateInformationPage = () => {
           <h1 className="text-2xl text-stone-50 bg-slate-950/5 rounded-full w-full max-w-[20rem]">
             Register Informations
           </h1>
-          <div className="relative flex flex-col items-center h-full max-h-[23rem] gap-4 bg-gray-600/80 backdrop-blur-md rounded-xl w-full max-w-[20rem] py-4 px-2">
+          <div className="relative flex flex-col items-center h-full max-h-[24.5rem] gap-4 bg-gray-600/80 backdrop-blur-md rounded-xl w-full max-w-[20rem] py-4 px-2">
             <InformationRegisterForm />
           </div>
         </div>
