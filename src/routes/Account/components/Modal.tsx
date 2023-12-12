@@ -76,7 +76,7 @@ export const ModalImg = () => {
         Mudar sua foto de perfil
       </span>
       <Modal open={openModal} className="flex justify-center items-center">
-        <Box className="dark:bg-stone-500 rounded-lg p-4 w-full max-w-[24rem] flex flex-col items-center gap-4">
+        <Box className="dark:bg-stone-500 bg-stone-400 rounded-lg p-4 w-full max-w-[24rem] flex flex-col items-center gap-4">
           <div className="flex justify-end w-full">
             <Icons.Close
               onClick={handleCloseModal}
