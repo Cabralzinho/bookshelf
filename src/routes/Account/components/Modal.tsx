@@ -83,11 +83,13 @@ export const ModalImg = () => {
               className="cursor-pointer"
             />
           </div>
-          <img
-            className="w-full max-w-[9rem] h-full max-h-[9rem] rounded-full object-cover"
-            src={imgUrl || "../images/user.jpg"}
-            alt=""
-          />
+          <div className="w-[12rem] h-[12rem] mobile:w-[11rem] mobile:h-[11rem]">
+            <img
+              className="w-full h-full rounded-full object-cover"
+              src={imgUrl || "../images/user.jpg"}
+              alt=""
+            />
+          </div>
           <Input
             className="text-black w-full file:cursor-pointer file:rounded-xl file:border-none file:p-2 file:bg-slate-400/90 file:hover:bg-slate-400 "
             type="file"
@@ -102,5 +104,3 @@ export const ModalImg = () => {
     </div>
   );
 };
-
-
