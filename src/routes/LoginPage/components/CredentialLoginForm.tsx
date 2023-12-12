@@ -45,13 +45,13 @@ export const CredentialLoginForm = () => {
   const onSubmitLogIn = handleSubmit(async (data) => {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
-      
+
       setMsgError("");
 
       navigate("/");
     } catch (error: any) {
       setMsgError("Email ou senha inválido");
-      console.log(error)
+      console.log(error);
     }
   });
 
