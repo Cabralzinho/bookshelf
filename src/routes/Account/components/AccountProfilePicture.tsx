@@ -1,7 +1,8 @@
 import { AuthProvider } from "@/providers/AuthProvider";
+import { ModalImg } from "./Modal";
 
 export const AccountProfilePicture = () => {
-  const {authUser} = AuthProvider()
+  const { authUser } = AuthProvider();
 
   return (
     <>
@@ -12,10 +13,9 @@ export const AccountProfilePicture = () => {
           src={authUser?.photoURL || "../images/user.jpg"}
           alt=""
         />
-        <span className="text-sky-700 hover:text-sky-400 cursor-pointer transition-all">
-          Mudar sua foto de perfil
-        </span>
+        <ModalImg />
       </div>
     </>
   );
 };
+
