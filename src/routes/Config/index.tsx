@@ -6,7 +6,7 @@ import { LogoutButton } from "./components/LogoutButton";
 export const Config = () => {
   return (
     <main className="flex flex-col gap-4 justify-center w-full pt-10">
-      <h1 className="text-3xl">Account</h1>
+      <h1 className="text-3xl">Conta</h1>
       <UserDetails />
       <Divider />
       <div>

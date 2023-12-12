@@ -27,7 +27,7 @@ export const NewestBooks = () => {
   return (
     <section className="flex justify-center pb-[4.5rem]">
       <div className="flex flex-col w-full max-w-[24rem] gap-4">
-        <h4>Newest</h4>
+        <h4>Livros novos</h4>
         {searchRandomNewestBook && (
           <ul className="flex flex-col gap-6">
             {searchRandomNewestBook.items.map((book: any) => (

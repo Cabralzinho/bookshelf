@@ -11,7 +11,7 @@ export default {
           max: "850px",
         },
         medium: {
-          max: "1200px"
+          min: "1000px"
         }
       }
     },

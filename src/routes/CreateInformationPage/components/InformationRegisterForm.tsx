@@ -77,8 +77,6 @@ export const InformationRegisterForm = () => {
     );
   };
 
- 
-
   const onSubmitRegisterInformation = handleSubmit(async (data) => {
     const user = auth.currentUser;
 
@@ -100,16 +98,18 @@ export const InformationRegisterForm = () => {
     >
       <Input
         error={!!errors.nameUser}
-        label="Your name"
-        placeholder="Your name"
+        label="Seu nome"
+        placeholder="Seu nome"
         helperText={errors.nameUser?.message as string}
         {...register("nameUser")}
       />
       <Input
         error={!!errors.photoUrl}
         type="file"
-        label="Your photo"
+        accept="image/*"
+        label="Sua foto de perfil"
         className="file:bg-blue-500/80 file:hover:bg-blue-500 file:rounded-lg file:border-none file:text-base text-black text-xs w-full"
+        helperText={errors.photoUrl?.message as string}
         onChange={(e: any) => {
           setImg(e.target.files[0]);
         }}
@@ -126,9 +126,9 @@ export const InformationRegisterForm = () => {
         type="submit"
         className="rounded-lg w-full text-white px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400"
       >
-        Register Informations
+        Registrar informações
       </button>
-      {imgUrl && <p className="text-white">Image loaded</p>}
+      {imgUrl && <p className="text-white">Imagem carregada</p>}
     </form>
   );
 };

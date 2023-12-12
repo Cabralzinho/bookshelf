@@ -25,7 +25,7 @@ export const LogoutButton = () => {
       <LinkItem.IconArea>
         <Icons.Logout className="w-full h-full" />
       </LinkItem.IconArea>
-      <LinkItem.Label>Logout</LinkItem.Label>
+      <LinkItem.Label>Sair</LinkItem.Label>
       <Icons.ChevronRight />
     </LinkItem.Body>
   );

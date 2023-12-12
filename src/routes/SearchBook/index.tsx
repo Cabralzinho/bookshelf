@@ -49,16 +49,16 @@ export const SearchBook = () => {
 
   return (
     <div className="flex flex-col h-full gap-1 pt-10 pb-20">
-      <div className="flex items-center bg-gray-100 dark:text-black rounded-lg px-2">
+      <div className="flex items-center bg-gray-200 dark:text-black rounded-lg px-2">
         <input
-          className="w-full max-w-[24rem] py-1 pl-3 rounded-lg focus:outline-none"
+          className="w-full max-w-[24rem] py-3 pl-3 rounded-lg focus:outline-none bg-gray-200"
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Search for a book"
+          placeholder="Procure por um livro..."
           autoComplete="off"
         />
-        <Icons.Close onClick={handleClickInputClear} className="cursor-pointer"/>
+        <Icons.Close onClick={handleClickInputClear} className="cursor-pointer "/>
       </div>
       <div className="flex flex-col items-center w-full max-w-[24rem] pb-20">
         <div className="flex bg-slate-100 dark:bg-gray-800 rounded-lg ">

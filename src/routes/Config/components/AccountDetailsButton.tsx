@@ -14,7 +14,7 @@ export const AccountDetailsButton = () => {
       <LinkItem.IconArea>
         <Icons.User className="w-full h-full" />
       </LinkItem.IconArea>
-      <LinkItem.Label>Account Details</LinkItem.Label>
+      <LinkItem.Label>Detalhes da conta</LinkItem.Label>
       <Icons.ChevronRight />
     </LinkItem.Body>
   );

@@ -6,6 +6,7 @@ import { z } from "zod";
 import { auth } from "@/firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 type FormProps = z.infer<typeof schema>;
 
@@ -30,6 +31,7 @@ const schema = z.object({
 
 export const CredentialLoginForm = () => {
   const navigate = useNavigate();
+  const [msgError, setMsgError] = useState("");
 
   const {
     register,
@@ -42,16 +44,14 @@ export const CredentialLoginForm = () => {
 
   const onSubmitLogIn = handleSubmit(async (data) => {
     try {
-      await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      );
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      
+      setMsgError("");
 
       navigate("/");
-    } 
-    catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      setMsgError("Email ou senha inválido");
+      console.log(error)
     }
   });
 
@@ -75,6 +75,7 @@ export const CredentialLoginForm = () => {
         helperText={errors.password?.message}
         {...register("password")}
       />
+      {msgError && <p className="text-red-500">{msgError}</p>}
       <button
         disabled={!!errors.email || !!errors.password}
         className="rounded-lg w-full px-4 py-2 bg-blue-500/80 hover:bg-blue-500 transition-all disabled:bg-slate-400 text-white"

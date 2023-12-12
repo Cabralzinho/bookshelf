@@ -13,7 +13,7 @@ export const Navbar = () => {
             alt=""
           />
         </div>
-        <h6 className="whitespace-nowrap">Hi, {authUser?.displayName}</h6>
+        <h6 className="whitespace-nowrap">Olá, {authUser?.displayName}</h6>
       </nav>
     </header>
   );
