@@ -1,15 +1,23 @@
-import { Icons } from "@/components/Icons";
+import { SpecificBookProps } from "..";
+import { Skeleton } from "@mui/material";
 
-export const InformationBook = ({specificBook}: any) => {
+export const InformationBook = ({ data, isLoading }: SpecificBookProps) => {
   return (
     <div className="flex text-start flex-col w-full gap-2 overflow-hidden mx-2">
       <div className="flex w-full justify-between items-center">
-        <h6 className="text-xl">{specificBook.volumeInfo.title}</h6>
-        <Icons.BookmarkDisabled className="text-lg cursor-pointer" />
+        {isLoading ? (
+          <Skeleton variant="text" width={400} height={80} />
+        ) : (
+          <h6 className="text-xl">{data.volumeInfo.title}</h6>
+        )}
       </div>
-      <p className=" text-gray-600 dark:text-slate-200 text-sm">
-        {specificBook.volumeInfo.authors?.[0] || ""}
-      </p>
+      {isLoading ? (
+        <Skeleton variant="text" width={400} height={40} />
+      ) : (
+        <p className=" text-gray-600 dark:text-slate-200 text-sm">
+          {data.volumeInfo.authors?.[0] || ""}
+        </p>
+      )}
     </div>
   );
 };

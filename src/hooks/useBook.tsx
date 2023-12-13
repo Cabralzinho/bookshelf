@@ -1,6 +1,6 @@
 import { randomLettersInApi } from "@/helpers/randomLetterInApi";
 import { apiKey } from "@/constants/apiKey";
-import { BookApi, BookshelfContext } from "@/providers/BookshelfProvider";
+import { BookApi, BookshelfContext, SpecificBookType } from "@/providers/BookshelfProvider";
 import { useContext } from "react";
 
 export const useBook = () => {
@@ -10,9 +10,6 @@ export const useBook = () => {
     searchRandomNewestBook,
     specificBook,
     requestLastMinute,
-    setSearchRandomPopularBook,
-    setSearchRandomNewestBook,
-    setSpecificBook,
     setSearchBook,
     setRequestLastMinute,
   } = useContext(BookshelfContext);
@@ -57,7 +54,7 @@ export const useBook = () => {
 
     const book = await response.json();
 
-    setSearchBook(book);
+    return setSearchBook(book);
   };
 
   const searchRandomPopularBookInApi = async () => {
@@ -71,8 +68,7 @@ export const useBook = () => {
 
     const clearedDuplicatedBooks = clearDuplicatedBooks(randomPopularBook);
 
-    setSearchRandomPopularBook(clearedDuplicatedBooks as BookApi);
-    return;
+    return clearedDuplicatedBooks as BookApi;
   };
 
   const searchRandomNewestBookInApi = async () => {
@@ -82,12 +78,11 @@ export const useBook = () => {
       `https://www.googleapis.com/books/v1/volumes?q=${randomLettersInApi()}&maxResults=4&printType=books&orderBy=newest&key=${apiKey}`
     );
 
-    const randomNewestBook = await response.json()
+    const randomNewestBook = await response.json();
 
     const clearedDuplicatedBooks = clearDuplicatedBooks(randomNewestBook);
 
-    setSearchRandomNewestBook(clearedDuplicatedBooks as BookApi);
-    return;
+    return clearedDuplicatedBooks as BookApi;
   };
 
   const searchSpecificBook = async (id: string) => {
@@ -97,7 +92,7 @@ export const useBook = () => {
 
     const specificBook = await response.json();
 
-    setSpecificBook(specificBook);
+    return specificBook as SpecificBookType;
   };
 
   return {

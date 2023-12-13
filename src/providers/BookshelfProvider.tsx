@@ -4,7 +4,7 @@ type BookshelfProviderProp = {
   children: React.ReactNode;
 };
 
-type SpecificBook = {
+export type SpecificBookType = {
   volumeInfo: {
     title: string;
     authors: string[];
@@ -47,6 +47,7 @@ type SpecificBook = {
 };
 
 export type BookApi = {
+  volumeInfo: any;
   kind: string;
   totalItems: number;
   items: [
@@ -85,7 +86,7 @@ type BookshelfContextProp = {
   searchBook: BookApi | null | undefined;
   searchRandomPopularBook: BookApi | null | undefined;
   searchRandomNewestBook: BookApi | null | undefined;
-  specificBook: SpecificBook | null | undefined;
+  specificBook: SpecificBookType | null | undefined;
   requestLastMinute: number[];
   setSearchBook: Dispatch<SetStateAction<BookApi | null | undefined>>;
   setSearchRandomPopularBook: Dispatch<
@@ -94,7 +95,9 @@ type BookshelfContextProp = {
   setSearchRandomNewestBook: Dispatch<
     SetStateAction<BookApi | null | undefined>
   >;
-  setSpecificBook: Dispatch<SetStateAction<SpecificBook | null | undefined>>;
+  setSpecificBook: Dispatch<
+    SetStateAction<SpecificBookType | null | undefined>
+  >;
   setRequestLastMinute: Dispatch<SetStateAction<number[]>>;
 };
 
@@ -113,7 +116,7 @@ export const BookshelfProvider = ({ children }: BookshelfProviderProp) => {
     BookApi | null | undefined
   >();
   const [specificBook, setSpecificBook] = useState<
-    SpecificBook | null | undefined
+    SpecificBookType | null | undefined
   >();
   const [requestLastMinute, setRequestLastMinute] = useState<number[]>([]);
 
