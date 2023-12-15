@@ -16,11 +16,13 @@ export const UserDetails = () => {
           <Skeleton variant="circular" width={80} height={80} />
         </div>
       ) : (
-        <img
-          className="w-full min-w-[6.5rem] max-w-[7rem] min-h-[6.5rem] h-full max-h-[7rem] rounded-full object-cover "
-          src={data?.photoURL || "./images/user.jpg"}
-          alt=""
-        />
+        <div className="w-[6.5rem] h-[6.5rem]">
+          <img
+            className="w-full min-w-[6.5rem] max-w-[7rem] min-h-[6.5rem] h-full max-h-[7rem] rounded-full object-cover "
+            src={data?.photoURL || "./images/user.jpg"}
+            alt=""
+          />
+        </div>
       )}
       <div className="flex flex-col gap-1 min-w-0 w-full">
         <span className="font-semibold text-ellipsis overflow-hidden">
