@@ -1,9 +1,7 @@
-import { AuthProvider } from "@/providers/AuthProvider";
+import { auth } from "@/firebase/firebase";
 import { ModalImg } from "./Modal";
 
 export const AccountProfilePicture = () => {
-  const { authUser } = AuthProvider();
-
   return (
     <>
       <h4 className="mobile:text-center w-full">Detalhes da conta</h4>
@@ -11,7 +9,7 @@ export const AccountProfilePicture = () => {
         <div className="w-[12rem] h-[12rem] mobile:w-[11rem] mobile:h-[11rem]">
           <img
             className="w-full h-full rounded-full object-cover"
-            src={authUser?.photoURL || "./images/user.jpg"}
+            src={auth.currentUser?.photoURL || "./images/user.jpg"}
             alt=""
           />
         </div>

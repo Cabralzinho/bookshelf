@@ -11,6 +11,8 @@ export const LogoutButton = () => {
     try {
       await signOut(auth);
 
+      localStorage.removeItem("authUser");
+
       navigate("/login");
     } catch (error) {
       console.log(error);

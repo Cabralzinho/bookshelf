@@ -4,7 +4,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { auth } from "@/firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  browserSessionPersistence,
+  setPersistence,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -44,6 +48,8 @@ export const CredentialLoginForm = () => {
 
   const onSubmitLogIn = handleSubmit(async (data) => {
     try {
+      await setPersistence(auth, browserSessionPersistence);
+
       await signInWithEmailAndPassword(auth, data.email, data.password);
 
       setMsgError("");

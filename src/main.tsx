@@ -91,7 +91,7 @@ const client = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
-      staleTime: Infinity,
+      staleTime: 1000 * 60 * 60 * 24,
     }
   }
 });

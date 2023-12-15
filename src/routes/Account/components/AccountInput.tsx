@@ -1,17 +1,16 @@
 import { Icons } from "@/components/Icons";
-import { AuthProvider } from "@/providers/AuthProvider";
+import { auth } from "@/firebase/firebase";
 
-export const AccountInput = () => {
-  const { authUser } = AuthProvider();
 
+export const AccountInput = () => {  
   const inputItem = [
     {
       inputName: "Seu Nome",
-      name: authUser?.displayName,
+      name: auth.currentUser?.displayName,
     },
     {
       inputName: "Seu Email",
-      name: authUser?.email,
+      name: auth.currentUser?.email,
     },
   ];
 

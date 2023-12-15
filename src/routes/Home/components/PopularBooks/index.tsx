@@ -36,7 +36,7 @@ export const PopularBooks = () => {
                 className="flex flex-col gap-3 cursor-pointer"
               >
                 {isLoading ? (
-                  <Skeleton variant="rectangular" width={160} height={210} />
+                  <Skeleton variant="rounded" width={160} height={210} />
                 ) : (
                   <img
                     className="h-56 rounded-lg object-cover drop-shadow-lg"

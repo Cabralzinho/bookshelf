@@ -1,7 +1,6 @@
 import { Icons } from "@/components/Icons";
 import { Input } from "@/components/Input";
-import { auth } from "@/firebase/firebase";
-import { AuthProvider } from "@/providers/AuthProvider";
+import { auth, user } from "@/firebase/firebase";
 import { Box, Modal } from "@mui/material";
 import { updateProfile } from "firebase/auth";
 import {
@@ -14,7 +13,6 @@ import { useEffect, useState } from "react";
 import { v4 } from "uuid";
 
 export const ModalImg = () => {
-  const { authUser } = AuthProvider();
   const [img, setImg] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [openModal, setOpenModal] = useState(false);
@@ -59,7 +57,7 @@ export const ModalImg = () => {
 
   const handleOpenModal = () => {
     setOpenModal(true);
-    setImgUrl(authUser?.photoURL || "../images/user.jpg");
+    setImgUrl(user?.photoURL || "../images/user.jpg");
   };
 
   const handleCloseModal = () => {

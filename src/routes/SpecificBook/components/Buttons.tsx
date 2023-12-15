@@ -1,18 +1,24 @@
 import { useBook } from "@/hooks/useBook";
+import { useQuery } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 
 export const Buttons = () => {
   const { specificBook } = useBook();
 
+  const {data} = useQuery({
+    queryKey: ["specificBook"],
+    queryFn: () => specificBook
+  })
+
   const [isBuyAvailable, setIsBuyAvailable] = useState(true);
   const [isSampleAvailable, setIsSampleAvailable] = useState(true);
 
   useEffect(() => {
-    if (specificBook?.saleInfo.saleability === "NOT_FOR_SALE") {
+    if (data?.saleInfo.saleability === "NOT_FOR_SALE") {
       setIsBuyAvailable(false);
     }
 
-    if (specificBook?.accessInfo.accessViewStatus === "NONE") {
+    if (data?.accessInfo.accessViewStatus === "NONE") {
       setIsSampleAvailable(false);
       return;
     }
@@ -20,18 +26,18 @@ export const Buttons = () => {
     setIsBuyAvailable(true);
     setIsSampleAvailable(true);
   }, [
-    specificBook?.accessInfo.accessViewStatus,
-    specificBook?.saleInfo.saleability,
+    data?.accessInfo.accessViewStatus,
+    data?.saleInfo.saleability,
   ]);
 
   return (
     <div className="">
-      {specificBook && (
+      {data && (
         <div className="flex w-full max-w-[20rem] bg-stone-100 border border-gray-800/50 drop-shadow-lg text-black rounded-lg relative divide-x divide-black">
           <a
             className="w-full"
             target="_blank"
-            href={specificBook.saleInfo.buyLink}
+            href={data.saleInfo.buyLink}
           >
             <button
               disabled={!isBuyAvailable}
@@ -44,7 +50,7 @@ export const Buttons = () => {
           <a
             className="w-full"
             target="_blank"
-            href={specificBook.accessInfo.webReaderLink}
+            href={data.accessInfo.webReaderLink}
           >
             <button
               disabled={!isSampleAvailable}

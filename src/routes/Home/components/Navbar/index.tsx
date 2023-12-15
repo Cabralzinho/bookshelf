@@ -1,14 +1,12 @@
 import "@/App.css";
-import { AuthProvider } from "@/providers/AuthProvider";
+import { auth } from "@/firebase/firebase";
 import { Skeleton } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 export const Navbar = () => {
-  const { authUser } = AuthProvider();
-
-  const { isLoading } = useQuery({
-    queryKey: ["authUser"],
-    enabled: !!authUser,
-    queryFn: () => authUser,
+  const { isLoading, data } = useQuery({
+    queryKey: ["auth"],
+    queryFn: () => auth.currentUser,
+    staleTime: 1000
   });
 
   return (
@@ -20,7 +18,7 @@ export const Navbar = () => {
           ) : (
             <img
               className="w-full h-full rounded-full object-cover"
-              src={authUser?.photoURL || "./images/user.jpg"}
+              src={data?.photoURL || "./images/user.jpg"}
               alt=""
             />
           )}
@@ -28,7 +26,7 @@ export const Navbar = () => {
         {isLoading ? (
           <Skeleton variant="text" width={200} height={20} />
         ) : (
-          <h6 className="whitespace-nowrap">Olá, {authUser?.displayName}</h6>
+          <h6 className="whitespace-nowrap">Olá, {data?.displayName}</h6>
         )}
       </nav>
     </header>
