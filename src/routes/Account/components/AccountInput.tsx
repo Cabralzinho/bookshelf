@@ -1,16 +1,18 @@
 import { Icons } from "@/components/Icons";
-import { auth } from "@/firebase/firebase";
+import { useAuthentication } from "@/hooks/useAuthentication ";
 
 
 export const AccountInput = () => {  
+  const user = useAuthentication();
+
   const inputItem = [
     {
       inputName: "Seu Nome",
-      name: auth.currentUser?.displayName,
+      name: user?.displayName,
     },
     {
       inputName: "Seu Email",
-      name: auth.currentUser?.email,
+      name: user?.email,
     },
   ];
 

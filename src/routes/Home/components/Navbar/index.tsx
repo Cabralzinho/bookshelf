@@ -1,13 +1,16 @@
 import "@/App.css";
 import { auth } from "@/firebase/firebase";
+import { useAuthentication } from "@/hooks/useAuthentication ";
 import { Skeleton } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
+
 export const Navbar = () => {
-  const { isLoading, data } = useQuery({
-    queryKey: ["auth"],
-    queryFn: () => auth.currentUser,
-    staleTime: 1000
+  const { isLoading } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => auth,
   });
+
+  const user = useAuthentication();
 
   return (
     <header className="flex justify-center pt-10">
@@ -18,16 +21,19 @@ export const Navbar = () => {
           ) : (
             <img
               className="w-full h-full rounded-full object-cover"
-              src={data?.photoURL || "./images/user.jpg"}
+              src={user?.photoURL || "./images/user.jpg"}
               alt=""
             />
           )}
         </div>
-        {isLoading ? (
-          <Skeleton variant="text" width={200} height={20} />
-        ) : (
-          <h6 className="whitespace-nowrap">Olá, {data?.displayName}</h6>
-        )}
+        <h6 className="whitespace-nowrap flex gap-1">
+          Olá,{" "}
+          {isLoading ? (
+            <Skeleton variant="text" width={100} />
+          ) : (
+            user?.displayName
+          )}
+        </h6>
       </nav>
     </header>
   );

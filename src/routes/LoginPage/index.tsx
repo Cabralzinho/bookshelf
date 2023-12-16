@@ -24,7 +24,7 @@ export const LoginPage = () => {
             <OrDivider />
             <LoginGoogle />
             <Link className="text-white mobile:text-center" to="/register">
-              Ainda nao tem uma conta?
+              Ainda não tem uma conta?
             </Link>
           </div>
         </div>

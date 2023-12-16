@@ -5,8 +5,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { auth } from "@/firebase/firebase";
 import {
-  browserSessionPersistence,
-  setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -48,8 +46,6 @@ export const CredentialLoginForm = () => {
 
   const onSubmitLogIn = handleSubmit(async (data) => {
     try {
-      await setPersistence(auth, browserSessionPersistence);
-
       await signInWithEmailAndPassword(auth, data.email, data.password);
 
       setMsgError("");

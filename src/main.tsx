@@ -10,32 +10,32 @@ import { Config } from "./routes/Config/index.tsx";
 import { Account } from "./routes/Account/index.tsx";
 import { RegisterPage } from "./routes/RegisterPage/index.tsx";
 import { CreateInformationPage } from "./routes/CreateInformationPage/index.tsx";
-import { PublicLayout } from "./components/PublicLayout.tsx";
 import { LoginPage } from "./routes/LoginPage/index.tsx";
-import { Protected } from "./components/Protected.tsx";
 import { SearchBook } from "./routes/SearchBook/index.tsx";
 import { RecoveryPasswordForm } from "./routes/RecoveryPasswords/SendEmail/index.tsx";
 import { RedefinePassword } from "./routes/RecoveryPasswords/RedefinePassword/index.tsx";
+import { AuthenticatedLayout } from "./components/AuthenticatedLayout.tsx";
+import { AuthenticationLayout } from "./components/AuthenticationLayout.tsx";
 
-const appLayout = (
+const AuthenticatedProtected = (
   <BookshelfProvider>
-    <Protected>
+    <AuthenticatedLayout>
       <App />
-    </Protected>
+    </AuthenticatedLayout>
   </BookshelfProvider>
 );
 
-const publicLayout = (
-  <PublicLayout>
+const AuthenticationProtected = (
+  <AuthenticationLayout>
     <Outlet />
-  </PublicLayout>
+  </AuthenticationLayout>
 );
 
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <Error404 />,
-    element: appLayout,
+    element: AuthenticatedProtected,
     children: [
       {
         path: "/",
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: publicLayout,
+    element: AuthenticationProtected,
     children: [
       {
         path: "/login",

@@ -1,6 +1,6 @@
 import { Icons } from "@/components/Icons";
 import { auth } from "@/firebase/firebase";
-import { GoogleAuthProvider, browserSessionPersistence, setPersistence, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export const LoginGoogle = () => {
@@ -9,8 +9,6 @@ export const LoginGoogle = () => {
 
   const handleOnClickPopUp = async () => {
     try {
-      await setPersistence(auth, browserSessionPersistence)
-
       await signInWithPopup(auth, provider);
 
       navigate("/");
